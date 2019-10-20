@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="qcv-wd-eMg">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zRv-iw-aD8" customClass="GameViewController" customModule="GB_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K2b-5V-C7D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGO-UV-J24">
+                                <rect key="frame" x="20" y="134" width="374" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="DfV-eS-aAa">
+                                <rect key="frame" x="20" y="526" width="374" height="286"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAO-Ei-3EP">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="yPs-LC-12m"/>
+                                        </constraints>
+                                        <state key="normal" title="AnswerA"/>
+                                        <connections>
+                                            <action selector="answerButtonTapped:" destination="zRv-iw-aD8" eventType="touchUpInside" id="weg-Xx-aYK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-jA-Mmm">
+                                        <rect key="frame" x="0.0" y="82" width="374" height="40"/>
+                                        <state key="normal" title="AnswerB"/>
+                                        <connections>
+                                            <action selector="answerButtonTapped:" destination="zRv-iw-aD8" eventType="touchUpInside" id="rsb-dc-EVD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSr-GM-3JW">
+                                        <rect key="frame" x="0.0" y="164" width="374" height="40"/>
+                                        <state key="normal" title="AnswerC"/>
+                                        <connections>
+                                            <action selector="answerButtonTapped:" destination="zRv-iw-aD8" eventType="touchUpInside" id="LaB-Pb-82m"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsA-SY-iwM">
+                                        <rect key="frame" x="0.0" y="246" width="374" height="40"/>
+                                        <state key="normal" title="AnswerD"/>
+                                        <connections>
+                                            <action selector="answerButtonTapped:" destination="zRv-iw-aD8" eventType="touchUpInside" id="4Cr-jW-iVT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MSr-GM-3JW" firstAttribute="height" secondItem="jAO-Ei-3EP" secondAttribute="height" id="1Ll-ux-sx7"/>
+                                    <constraint firstItem="CR6-jA-Mmm" firstAttribute="height" secondItem="jAO-Ei-3EP" secondAttribute="height" id="OfK-hw-SsS"/>
+                                    <constraint firstItem="zsA-SY-iwM" firstAttribute="height" secondItem="jAO-Ei-3EP" secondAttribute="height" id="ag6-Ca-xg9"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xbX-fl-oWa">
+                                <rect key="frame" x="20" y="64" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWA-Vc-mHt">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="50"/>
+                                        <state key="normal" title="50:50"/>
+                                        <connections>
+                                            <action selector="hintsButtonTapped:" destination="zRv-iw-aD8" eventType="touchUpInside" id="HBH-cM-lPk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gER-x7-JMY">
+                                        <rect key="frame" x="127.5" y="0.0" width="119" height="50"/>
+                                        <state key="normal" title="Звонок другу"/>
+                                        <connections>
+                                            <action selector="hintsButtonTapped:" destination="zRv-iw-aD8" eventType="touchUpInside" id="2VY-cM-FSQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqs-fe-7K3">
+                                        <rect key="frame" x="254.5" y="0.0" width="119.5" height="50"/>
+                                        <state key="normal" title="Помощь зала"/>
+                                        <connections>
+                                            <action selector="hintsButtonTapped:" destination="zRv-iw-aD8" eventType="touchUpInside" id="BG5-HD-rEY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jZf-zG-dBS"/>
+                                    <constraint firstItem="gER-x7-JMY" firstAttribute="width" secondItem="bqs-fe-7K3" secondAttribute="width" id="o5C-p6-4WT"/>
+                                    <constraint firstItem="pWA-Vc-mHt" firstAttribute="width" secondItem="gER-x7-JMY" secondAttribute="width" id="td8-yk-VWm"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xQJ-Uz-Fu7" firstAttribute="trailing" secondItem="DfV-eS-aAa" secondAttribute="trailing" constant="20" id="C3f-Y2-3IU"/>
+                            <constraint firstItem="xbX-fl-oWa" firstAttribute="leading" secondItem="xQJ-Uz-Fu7" secondAttribute="leading" constant="20" id="Fkg-JW-5SW"/>
+                            <constraint firstItem="DfV-eS-aAa" firstAttribute="leading" secondItem="xQJ-Uz-Fu7" secondAttribute="leading" constant="20" id="H46-l5-Ciw"/>
+                            <constraint firstItem="xQJ-Uz-Fu7" firstAttribute="trailing" secondItem="xbX-fl-oWa" secondAttribute="trailing" constant="20" id="J7R-bK-IZC"/>
+                            <constraint firstItem="xQJ-Uz-Fu7" firstAttribute="bottom" secondItem="DfV-eS-aAa" secondAttribute="bottom" constant="50" id="Qwz-rx-d61"/>
+                            <constraint firstItem="xbX-fl-oWa" firstAttribute="top" secondItem="xQJ-Uz-Fu7" secondAttribute="top" constant="20" id="TzJ-rq-Nua"/>
+                            <constraint firstItem="xQJ-Uz-Fu7" firstAttribute="trailing" secondItem="qGO-UV-J24" secondAttribute="trailing" constant="20" id="W5h-0W-NHQ"/>
+                            <constraint firstItem="qGO-UV-J24" firstAttribute="leading" secondItem="xQJ-Uz-Fu7" secondAttribute="leading" constant="20" id="ivM-gu-UbY"/>
+                            <constraint firstItem="DfV-eS-aAa" firstAttribute="centerX" secondItem="K2b-5V-C7D" secondAttribute="centerX" id="mfy-d7-U85"/>
+                            <constraint firstItem="qGO-UV-J24" firstAttribute="top" secondItem="xbX-fl-oWa" secondAttribute="bottom" constant="20" id="y5x-zK-8M0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xQJ-Uz-Fu7"/>
+                    </view>
+                    <connections>
+                        <outlet property="questionLabel" destination="qGO-UV-J24" id="4Fi-eP-HbW"/>
+                        <outletCollection property="hintsButton" destination="pWA-Vc-mHt" collectionClass="NSMutableArray" id="cUR-7g-Bd6"/>
+                        <outletCollection property="hintsButton" destination="gER-x7-JMY" collectionClass="NSMutableArray" id="Pra-PC-MDD"/>
+                        <outletCollection property="hintsButton" destination="bqs-fe-7K3" collectionClass="NSMutableArray" id="YsW-gH-2kO"/>
+                        <outletCollection property="answersButton" destination="jAO-Ei-3EP" collectionClass="NSMutableArray" id="PF9-wY-Ozd"/>
+                        <outletCollection property="answersButton" destination="CR6-jA-Mmm" collectionClass="NSMutableArray" id="j5T-AT-nMG"/>
+                        <outletCollection property="answersButton" destination="MSr-GM-3JW" collectionClass="NSMutableArray" id="H6w-VS-zHf"/>
+                        <outletCollection property="answersButton" destination="zsA-SY-iwM" collectionClass="NSMutableArray" id="uei-TZ-tOI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Si-q7-jUO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="102.89855072463769" y="141.96428571428569"/>
+        </scene>
+    </scenes>
+</document>
