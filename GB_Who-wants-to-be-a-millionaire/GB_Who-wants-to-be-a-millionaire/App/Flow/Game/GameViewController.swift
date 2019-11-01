@@ -10,8 +10,8 @@ import UIKit
 
 protocol GameViewControllerDelegate: class {
     var totalQuestions: Int { get set }
-    var percentCorrectAnswers: Int { get set }
-    var currentQuestion: Int { get set }
+    var percentCorrectAnswers: Observable<Int> { get set }
+    var currentQuestion: Observable<Int> { get set }
     var isFiftyFifty: Bool { get set }
     var isPhoneAFriend: Bool { get set }
     var isAskTheAudience: Bool { get set }
@@ -21,19 +21,39 @@ protocol GameViewControllerDelegate: class {
 
 class GameViewController: UIViewController {
     weak var gameDelegate: GameViewControllerDelegate?
-    private let questions = Questions().questions
+    private var questions = Game.shared.questions
+    var questionsStrategy: OrderQuestionsStrategy?
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet var answersButton: [UIButton]!
     @IBOutlet var hintsButton: [UIButton]!
+    @IBOutlet weak var questionNumberLabel: UILabel!
+    @IBOutlet weak var percentCorrectAnswersLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gameDelegate = Game.shared.gameSession
         gameDelegate?.totalQuestions = questions.count
+        chooseStrategy()
+        configureLabels()
         setupBackgroundImage()
         configureButtons()
-        configureView(with: questions[gameDelegate?.currentQuestion ?? 0])
+        configureView(with: questions[gameDelegate?.currentQuestion.value ?? 0])
+    }
+    
+    func chooseStrategy() {
+        switch Game.shared.orderQuestions {
+        case .random:
+            questionsStrategy = RandomQuestionsStrategy()
+        case .sequentially:
+            questionsStrategy = SequentiallyQuestionsStrategy()
+        }
+        questions = questionsStrategy?.chooseOrderOfQuestions(from: questions) ?? questions
+    }
+    
+    func configureLabels() {
+        gameDelegate?.percentCorrectAnswers.addObserver(self, options: [.new, .initial], closure: { [weak self] (percentage, _) in self?.percentCorrectAnswersLabel.text = "\(percentage)%" })
+        gameDelegate?.currentQuestion.addObserver(self, options: [.new, .initial], closure: { [weak self] (question, _) in self?.questionNumberLabel.text = "\(question + 1)" })
     }
     
     func setupBackgroundImage() {
@@ -67,8 +87,8 @@ class GameViewController: UIViewController {
     private func fiftyFifty() {
         guard let gameDelegate = gameDelegate else { return }
         gameDelegate.isFiftyFifty = false
-        let indexCorrectAnswer = questions[gameDelegate.currentQuestion].rightAnswer - 1
-        let arrayOfIndexes = Array(0..<questions[gameDelegate.currentQuestion].answers.count)
+        let indexCorrectAnswer = questions[gameDelegate.currentQuestion.value].rightAnswer - 1
+        let arrayOfIndexes = Array(0..<questions[gameDelegate.currentQuestion.value].answers.count)
         let randomIndex = Int.random(in: 0..<(arrayOfIndexes.count - 1))
         var wrongIndexes = arrayOfIndexes.filter { $0 != indexCorrectAnswer }
         wrongIndexes.remove(at: randomIndex)
@@ -81,9 +101,9 @@ class GameViewController: UIViewController {
     private func phoneAFriend() {
         guard let gameDelegate = gameDelegate else { return }
         gameDelegate.isPhoneAFriend = false
-        let indexCorrectAnswer = questions[gameDelegate.currentQuestion].rightAnswer - 1
-        let firstRandom = Int.random(in: 0 ... (questions[gameDelegate.currentQuestion].answers.count - 1))
-        let secondRandom = Int.random(in: 0 ... (questions[gameDelegate.currentQuestion].answers.count - 1))
+        let indexCorrectAnswer = questions[gameDelegate.currentQuestion.value].rightAnswer - 1
+        let firstRandom = Int.random(in: 0 ... (questions[gameDelegate.currentQuestion.value].answers.count - 1))
+        let secondRandom = Int.random(in: 0 ... (questions[gameDelegate.currentQuestion.value].answers.count - 1))
         
         if firstRandom == indexCorrectAnswer {
             answersButton[firstRandom].backgroundColor = .orange
@@ -95,14 +115,14 @@ class GameViewController: UIViewController {
     private func phoneAFriendAfterFiftyFifty() {
         guard let gameDelegate = gameDelegate else { return }
         gameDelegate.isPhoneAFriend = false
-        let indexCorrectAnswer = questions[gameDelegate.currentQuestion].rightAnswer - 1
+        let indexCorrectAnswer = questions[gameDelegate.currentQuestion.value].rightAnswer - 1
         answersButton[indexCorrectAnswer].backgroundColor = .orange
     }
     
     private func askTheAudience() {
         guard let gameDelegate = gameDelegate else { return }
         gameDelegate.isAskTheAudience = false
-        let indexCorrectAnswer = questions[gameDelegate.currentQuestion].rightAnswer - 1
+        let indexCorrectAnswer = questions[gameDelegate.currentQuestion.value].rightAnswer - 1
         var percent = 80
         answersButton
             .filter { $0.tag != indexCorrectAnswer }
@@ -116,7 +136,7 @@ class GameViewController: UIViewController {
     private func askTheAudienceAfterFiftyFifty() {
         guard let gameDelegate = gameDelegate else { return }
         gameDelegate.isAskTheAudience = false
-        let indexCorrectAnswer = questions[gameDelegate.currentQuestion].rightAnswer - 1
+        let indexCorrectAnswer = questions[gameDelegate.currentQuestion.value].rightAnswer - 1
         let firstRandom = Int.random(in: 20 ... 100)
         let secondRandom = (100 - firstRandom)
         answersButton.forEach {
@@ -127,15 +147,15 @@ class GameViewController: UIViewController {
     
     @IBAction func answerButtonTapped(_ sender: UIButton) {
         guard let gameDelegate = gameDelegate else { return }
-        if sender.tag != questions[gameDelegate.currentQuestion].rightAnswer - 1 {
+        if sender.tag != questions[gameDelegate.currentQuestion.value].rightAnswer - 1 {
             gameDelegate.endGame()
             let alert = Alert(question: "Ответ неверный, Вы проиграли",
                               acceptTitle: "Ок",
                               rejectTitle: nil)
             alert.present(in: self)
-        } else if gameDelegate.currentQuestion < questions.count - 1 {
+        } else if gameDelegate.currentQuestion.value < questions.count - 1 {
             gameDelegate.correctAnswer()
-            configureView(with: questions[gameDelegate.currentQuestion])
+            configureView(with: questions[gameDelegate.currentQuestion.value])
         } else {
             gameDelegate.correctAnswer()
             gameDelegate.endGame()

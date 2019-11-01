@@ -10,28 +10,28 @@ import Foundation
 
 class GameSession {
     var totalQuestions: Int = 0
-    var currentQuestion: Int = 0
+    var currentQuestion: Observable<Int> = Observable(0)
     var correctAnswers: Int = 0
-    var percentCorrectAnswers: Int = 0
+    var percentCorrectAnswers: Observable<Int> = Observable(0)
     var isFiftyFifty: Bool = true
     var isPhoneAFriend: Bool = true
     var isAskTheAudience: Bool = true
     
     private func calculatePercentCorrectAnswers() {
         guard totalQuestions != 0 else { return }
-        percentCorrectAnswers = Int(Double(correctAnswers) / Double(totalQuestions) * 100)
+        percentCorrectAnswers.value = Int(Double(correctAnswers) / Double(totalQuestions) * 100)
     }
 }
 
 extension GameSession: GameViewControllerDelegate {
     func correctAnswer() {
         correctAnswers += 1
-        currentQuestion += 1
+        currentQuestion.value += 1
         calculatePercentCorrectAnswers()
     }
     
     func endGame() {
-        Game.shared.gameDidEnd(with: percentCorrectAnswers)
+        Game.shared.gameDidEnd(with: percentCorrectAnswers.value)
     }
 
 }

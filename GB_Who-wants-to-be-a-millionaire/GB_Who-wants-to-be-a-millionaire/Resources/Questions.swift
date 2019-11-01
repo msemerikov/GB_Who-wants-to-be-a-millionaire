@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Questions {
+struct Questions: Codable {
     var questions: [Question]
     
     init() {

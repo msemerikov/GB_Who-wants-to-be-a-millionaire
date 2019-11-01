@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -94,9 +94,22 @@
                                     <constraint firstItem="pWA-Vc-mHt" firstAttribute="width" secondItem="gER-x7-JMY" secondAttribute="width" id="td8-yk-VWm"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qya-HM-GN1">
+                                <rect key="frame" x="20" y="841.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGh-1J-uPE">
+                                <rect key="frame" x="352" y="841.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="mGh-1J-uPE" firstAttribute="bottom" secondItem="xQJ-Uz-Fu7" secondAttribute="bottom" id="9SG-Tu-3tq"/>
                             <constraint firstItem="xQJ-Uz-Fu7" firstAttribute="trailing" secondItem="DfV-eS-aAa" secondAttribute="trailing" constant="20" id="C3f-Y2-3IU"/>
                             <constraint firstItem="xbX-fl-oWa" firstAttribute="leading" secondItem="xQJ-Uz-Fu7" secondAttribute="leading" constant="20" id="Fkg-JW-5SW"/>
                             <constraint firstItem="DfV-eS-aAa" firstAttribute="leading" secondItem="xQJ-Uz-Fu7" secondAttribute="leading" constant="20" id="H46-l5-Ciw"/>
@@ -105,13 +118,18 @@
                             <constraint firstItem="xbX-fl-oWa" firstAttribute="top" secondItem="xQJ-Uz-Fu7" secondAttribute="top" constant="20" id="TzJ-rq-Nua"/>
                             <constraint firstItem="xQJ-Uz-Fu7" firstAttribute="trailing" secondItem="qGO-UV-J24" secondAttribute="trailing" constant="20" id="W5h-0W-NHQ"/>
                             <constraint firstItem="qGO-UV-J24" firstAttribute="leading" secondItem="xQJ-Uz-Fu7" secondAttribute="leading" constant="20" id="ivM-gu-UbY"/>
+                            <constraint firstItem="qya-HM-GN1" firstAttribute="bottom" secondItem="xQJ-Uz-Fu7" secondAttribute="bottom" id="jdH-mp-DMf"/>
                             <constraint firstItem="DfV-eS-aAa" firstAttribute="centerX" secondItem="K2b-5V-C7D" secondAttribute="centerX" id="mfy-d7-U85"/>
+                            <constraint firstItem="xQJ-Uz-Fu7" firstAttribute="trailing" secondItem="mGh-1J-uPE" secondAttribute="trailing" constant="20" id="rqk-Tf-OSz"/>
+                            <constraint firstItem="qya-HM-GN1" firstAttribute="leading" secondItem="xQJ-Uz-Fu7" secondAttribute="leading" constant="20" id="xGB-oV-U47"/>
                             <constraint firstItem="qGO-UV-J24" firstAttribute="top" secondItem="xbX-fl-oWa" secondAttribute="bottom" constant="20" id="y5x-zK-8M0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xQJ-Uz-Fu7"/>
                     </view>
                     <connections>
+                        <outlet property="percentCorrectAnswersLabel" destination="mGh-1J-uPE" id="ce9-u6-DIS"/>
                         <outlet property="questionLabel" destination="qGO-UV-J24" id="4Fi-eP-HbW"/>
+                        <outlet property="questionNumberLabel" destination="qya-HM-GN1" id="vdC-Eb-jDz"/>
                         <outletCollection property="hintsButton" destination="pWA-Vc-mHt" collectionClass="NSMutableArray" id="cUR-7g-Bd6"/>
                         <outletCollection property="hintsButton" destination="gER-x7-JMY" collectionClass="NSMutableArray" id="Pra-PC-MDD"/>
                         <outletCollection property="hintsButton" destination="bqs-fe-7K3" collectionClass="NSMutableArray" id="YsW-gH-2kO"/>

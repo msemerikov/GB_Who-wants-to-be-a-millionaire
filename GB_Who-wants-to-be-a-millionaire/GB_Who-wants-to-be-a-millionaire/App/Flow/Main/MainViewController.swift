@@ -10,8 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-//    @IBOutlet weak var playButton: UIButton!
-//    @IBOutlet weak var resultsButton: UIButton!
     @IBOutlet var buttons: [UIButton]!
     
     override func viewDidLoad() {
@@ -49,6 +47,18 @@ class MainViewController: UIViewController {
     @IBAction func resultsButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Records", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RecordTableViewController") as! RecordTableViewController
+        self.show(vc, sender: nil)
+    }
+    
+    @IBAction func settingsButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        self.show(vc, sender: nil)
+    }
+    
+    @IBAction func addQuestionButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "AddQuestion", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AddQuestionViewController") as! AddQuestionViewController
         self.show(vc, sender: nil)
     }
 }

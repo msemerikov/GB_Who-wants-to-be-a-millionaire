@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="760-yv-dlg">
-                                <rect key="frame" x="20" y="741" width="374" height="91"/>
+                                <rect key="frame" x="20" y="619" width="374" height="213"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJM-oR-hGC">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -36,6 +36,20 @@
                                         <state key="normal" title="Results"/>
                                         <connections>
                                             <action selector="resultsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6wc-4j-uKx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxL-ib-O2o">
+                                        <rect key="frame" x="0.0" y="122" width="374" height="30"/>
+                                        <state key="normal" title="Settings"/>
+                                        <connections>
+                                            <action selector="settingsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huq-bb-ypz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edE-bF-bfZ">
+                                        <rect key="frame" x="0.0" y="183" width="374" height="30"/>
+                                        <state key="normal" title="Add question"/>
+                                        <connections>
+                                            <action selector="addQuestionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O0h-de-iCl"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -57,6 +71,8 @@
                     <connections>
                         <outletCollection property="buttons" destination="BJM-oR-hGC" collectionClass="NSMutableArray" id="B3F-el-HAd"/>
                         <outletCollection property="buttons" destination="Liz-3e-GMc" collectionClass="NSMutableArray" id="mt0-Nx-brU"/>
+                        <outletCollection property="buttons" destination="RxL-ib-O2o" collectionClass="NSMutableArray" id="9lr-7f-JGr"/>
+                        <outletCollection property="buttons" destination="edE-bF-bfZ" collectionClass="NSMutableArray" id="9I4-Cv-gZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

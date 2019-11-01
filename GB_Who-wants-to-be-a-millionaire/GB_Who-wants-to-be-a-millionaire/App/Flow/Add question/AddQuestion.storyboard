@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Question View Controller-->
+        <scene sceneID="aEF-ux-l5e">
+            <objects>
+                <viewController storyboardIdentifier="AddQuestionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1sW-pz-fcS" customClass="AddQuestionViewController" customModule="GB_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="30r-No-yYn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iNf-mn-KKE">
+                                <rect key="frame" x="20" y="110" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6K-WN-Yde">
+                                <rect key="frame" x="20" y="84" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Варианты ответов:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOy-KS-7xC">
+                                <rect key="frame" x="20" y="164" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Первый вариант" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Vf-ml-D2y">
+                                <rect key="frame" x="20" y="190" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Второй вариант" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Y2-Vf-NAO">
+                                <rect key="frame" x="20" y="229" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Третий вариант" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2uB-cf-Lca">
+                                <rect key="frame" x="20" y="268" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Четвертый вариант" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uoh-Nw-QWU">
+                                <rect key="frame" x="20" y="307" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COB-VV-RBf">
+                                <rect key="frame" x="20" y="832" width="374" height="30"/>
+                                <state key="normal" title="Записать"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="1sW-pz-fcS" eventType="touchUpInside" id="Whp-fB-T3P"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Правильный вариант:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzj-NP-GvY">
+                                <rect key="frame" x="20" y="361" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rXt-Rh-bZv">
+                                <rect key="frame" x="20" y="387" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Первый"/>
+                                    <segment title="Второй"/>
+                                    <segment title="Третий"/>
+                                    <segment title="Четвертый"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="COB-VV-RBf" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="3HT-fc-77f"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="rXt-Rh-bZv" secondAttribute="trailing" constant="20" id="6Lf-F5-3yS"/>
+                            <constraint firstItem="6Y2-Vf-NAO" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="7F8-yE-mjr"/>
+                            <constraint firstItem="uoh-Nw-QWU" firstAttribute="top" secondItem="2uB-cf-Lca" secondAttribute="bottom" constant="5" id="B7g-Qk-0SM"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="2Vf-ml-D2y" secondAttribute="trailing" constant="20" id="B8X-lM-rCl"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="6Y2-Vf-NAO" secondAttribute="trailing" constant="20" id="C5b-9o-wA1"/>
+                            <constraint firstItem="rXt-Rh-bZv" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="CEp-vC-jtd"/>
+                            <constraint firstItem="6Y2-Vf-NAO" firstAttribute="top" secondItem="2Vf-ml-D2y" secondAttribute="bottom" constant="5" id="E3u-dT-V6E"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="iNf-mn-KKE" secondAttribute="trailing" constant="20" id="EwC-38-NT7"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="kOy-KS-7xC" secondAttribute="trailing" constant="20" id="GQ3-vR-TLH"/>
+                            <constraint firstItem="2Vf-ml-D2y" firstAttribute="top" secondItem="kOy-KS-7xC" secondAttribute="bottom" constant="5" id="HPr-rA-dfk"/>
+                            <constraint firstItem="iNf-mn-KKE" firstAttribute="top" secondItem="N6K-WN-Yde" secondAttribute="bottom" constant="5" id="KCo-5S-HMy"/>
+                            <constraint firstItem="uoh-Nw-QWU" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="LHW-OJ-iQW"/>
+                            <constraint firstItem="kzj-NP-GvY" firstAttribute="top" secondItem="uoh-Nw-QWU" secondAttribute="bottom" constant="20" id="MQ9-Wx-sQx"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="uoh-Nw-QWU" secondAttribute="trailing" constant="20" id="Mrc-KO-LAJ"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="2uB-cf-Lca" secondAttribute="trailing" constant="20" id="NVt-6q-1t8"/>
+                            <constraint firstItem="kzj-NP-GvY" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="QrP-Wu-vyF"/>
+                            <constraint firstItem="2Vf-ml-D2y" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="RlX-cU-RqK"/>
+                            <constraint firstItem="N6K-WN-Yde" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="TMH-xG-RMS"/>
+                            <constraint firstItem="2uB-cf-Lca" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="Wqc-cS-itQ"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="COB-VV-RBf" secondAttribute="trailing" constant="20" id="bQp-87-q7Q"/>
+                            <constraint firstItem="2uB-cf-Lca" firstAttribute="top" secondItem="6Y2-Vf-NAO" secondAttribute="bottom" constant="5" id="bRy-Ln-Wkp"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="kzj-NP-GvY" secondAttribute="trailing" constant="20" id="d3M-Ev-Vki"/>
+                            <constraint firstItem="COB-VV-RBf" firstAttribute="bottom" secondItem="743-rl-70g" secondAttribute="bottom" id="fsp-Vw-wfA"/>
+                            <constraint firstItem="iNf-mn-KKE" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="ghr-fu-RLD"/>
+                            <constraint firstItem="rXt-Rh-bZv" firstAttribute="top" secondItem="kzj-NP-GvY" secondAttribute="bottom" constant="5" id="hqK-fp-XiX"/>
+                            <constraint firstItem="N6K-WN-Yde" firstAttribute="top" secondItem="743-rl-70g" secondAttribute="top" constant="40" id="ln7-Lh-ILn"/>
+                            <constraint firstItem="kOy-KS-7xC" firstAttribute="top" secondItem="iNf-mn-KKE" secondAttribute="bottom" constant="20" id="s4g-K8-iaV"/>
+                            <constraint firstItem="kOy-KS-7xC" firstAttribute="leading" secondItem="743-rl-70g" secondAttribute="leading" constant="20" id="uVI-fT-lVP"/>
+                            <constraint firstItem="743-rl-70g" firstAttribute="trailing" secondItem="N6K-WN-Yde" secondAttribute="trailing" constant="20" id="vHd-f2-Nln"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="743-rl-70g"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerSegmentedControl" destination="rXt-Rh-bZv" id="den-rV-vWZ"/>
+                        <outlet property="firstAnswerTextField" destination="2Vf-ml-D2y" id="nPi-U5-wJc"/>
+                        <outlet property="fourthAnswerTextField" destination="uoh-Nw-QWU" id="sbV-ZQ-6Le"/>
+                        <outlet property="questionTextField" destination="iNf-mn-KKE" id="U1t-33-Lgi"/>
+                        <outlet property="saveButton" destination="COB-VV-RBf" id="fC5-vu-r3j"/>
+                        <outlet property="secondAnswerTextField" destination="6Y2-Vf-NAO" id="G0n-49-yMc"/>
+                        <outlet property="thirdAnswerTextField" destination="2uB-cf-Lca" id="nQK-oi-9Fi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C95-cc-LS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89.855072463768124" y="144.64285714285714"/>
+        </scene>
+    </scenes>
+</document>

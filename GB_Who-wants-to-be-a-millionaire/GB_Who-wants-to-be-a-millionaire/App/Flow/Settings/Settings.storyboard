@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="7e3-da-7dH">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eM5-UL-SNh" customClass="SettingsViewController" customModule="GB_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NAo-fc-gi7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fzE-dr-cWs">
+                                <rect key="frame" x="345" y="84" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchTapped:" destination="eM5-UL-SNh" eventType="valueChanged" id="iwW-EM-HBF"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZQ-Cg-qmf">
+                                <rect key="frame" x="20" y="812" width="374" height="30"/>
+                                <state key="normal" title="Загрузить вопросы"/>
+                                <connections>
+                                    <action selector="loadQuestionsTapped:" destination="eM5-UL-SNh" eventType="touchUpInside" id="ZEC-AE-c2j"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Произвольный порядок вопросов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waO-wr-LxM">
+                                <rect key="frame" x="20" y="89" width="271" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="waO-wr-LxM" firstAttribute="leading" secondItem="hLo-MN-xbZ" secondAttribute="leading" constant="20" id="2QE-dg-KgB"/>
+                            <constraint firstItem="hLo-MN-xbZ" firstAttribute="bottom" secondItem="FZQ-Cg-qmf" secondAttribute="bottom" constant="20" id="2S1-Wz-y32"/>
+                            <constraint firstItem="hLo-MN-xbZ" firstAttribute="trailing" secondItem="fzE-dr-cWs" secondAttribute="trailing" constant="20" id="XFN-qF-tbi"/>
+                            <constraint firstItem="waO-wr-LxM" firstAttribute="top" secondItem="hLo-MN-xbZ" secondAttribute="top" constant="45" id="n2L-UM-3o3"/>
+                            <constraint firstItem="fzE-dr-cWs" firstAttribute="top" secondItem="hLo-MN-xbZ" secondAttribute="top" constant="40" id="wwd-A4-OGK"/>
+                            <constraint firstItem="hLo-MN-xbZ" firstAttribute="trailing" secondItem="FZQ-Cg-qmf" secondAttribute="trailing" constant="20" id="wzP-hF-abv"/>
+                            <constraint firstItem="FZQ-Cg-qmf" firstAttribute="leading" secondItem="hLo-MN-xbZ" secondAttribute="leading" constant="20" id="yFj-Je-HFY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hLo-MN-xbZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="loadQuestionsButton" destination="FZQ-Cg-qmf" id="NTo-js-pqM"/>
+                        <outlet property="orderQuestionsLabel" destination="waO-wr-LxM" id="S5b-Li-5EI"/>
+                        <outlet property="orderQuestionsSwitch" destination="fzE-dr-cWs" id="LNr-wX-j9F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5w-Sh-5xn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="151"/>
+        </scene>
+    </scenes>
+</document>
